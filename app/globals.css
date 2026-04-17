@@ -17,6 +17,17 @@ body {
   line-height: 1.5;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: 600;
+}
+
 button,
 input,
 select,
@@ -31,7 +42,7 @@ svg {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: currentColor;
 }
 
 ul,
