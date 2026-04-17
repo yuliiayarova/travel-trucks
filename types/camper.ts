@@ -4,6 +4,7 @@ export interface Camper {
   price: number;
   rating: number;
   location: string;
+  description: string;
   form: CamperForm;
   length: string;
   width: string;
@@ -13,6 +14,8 @@ export interface Camper {
   transmission: CamperTransmission;
   engine: CamperEngine;
   amenities: CamperAmenities[];
+  createdAt: string;
+  updatedAt: string;
   coverImage: string;
   totalReviews: number;
 }

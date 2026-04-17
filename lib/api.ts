@@ -1,6 +1,5 @@
 import {
   Camper,
-  CamperAmenities,
   CamperEngine,
   CamperForm,
   CamperGallery,
@@ -38,23 +37,26 @@ interface GetCampersFiltersResponse {
 }
 
 interface GetCamperByIdResponse {
-  id: string;
-  name: string;
-  price: number;
-  rating: number;
-  location: string;
-  form: CamperForm;
-  length: string;
-  width: string;
-  height: string;
-  tank: string;
-  consumption: string;
-  transmission: CamperTransmission;
-  engine: CamperEngine;
-  amenities: CamperAmenities[];
+  camper: Camper;
   gallery: CamperGallery[];
+}
+
+interface GetCamperReviewsResponse {
+  id: string;
+  camperId: string;
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
   createdAt: string;
-  updatedAt: string;
+}
+
+interface CreateBookingRequestBody {
+  name: string;
+  email: string;
+}
+
+interface CreateBookingResponse {
+  message: string;
 }
 
 export async function getCampers(
@@ -78,6 +80,26 @@ export async function getCamperById(
 ): Promise<GetCamperByIdResponse> {
   const { data } = await apiClient.get<GetCamperByIdResponse>(
     `${ENDPOINT}/${id}`,
+  );
+  return data;
+}
+
+export async function getCamperReviews(
+  id: Camper["id"],
+): Promise<GetCamperReviewsResponse> {
+  const { data } = await apiClient.get<GetCamperReviewsResponse>(
+    `${ENDPOINT}/${id}/reviews`,
+  );
+  return data;
+}
+
+export async function createBookingRequest(
+  id: Camper["id"],
+  body: CreateBookingRequestBody,
+): Promise<CreateBookingResponse> {
+  const { data } = await apiClient.post<CreateBookingResponse>(
+    `${ENDPOINT}/${id}/booking-request`,
+    body,
   );
   return data;
 }

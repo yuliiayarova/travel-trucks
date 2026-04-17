@@ -2,6 +2,8 @@
   display: flex;
   align-items: baseline;
   padding: 0 64px;
+  border-bottom: 1px solid #f2f4f7;
+  background-color: #f7f7f7;
 }
 .headerNav {
   margin-right: auto;
@@ -28,4 +30,8 @@
 
 .logo {
   margin-right: auto;
+}
+
+.activeLink {
+  color: #829b91;
 }

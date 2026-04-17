@@ -1,7 +1,14 @@
+"use client";
 import Link from "next/link";
 import css from "./Header.module.css";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isCatalog = pathname === "/catalog";
+
   return (
     <header className={css.header}>
       <Link className={css.logo} href="/" aria-label="Home">
@@ -17,7 +24,10 @@ export default function Header() {
             </Link>
           </li>
           <li className={css.headerItem}>
-            <Link className={css.headerLink} href="/catalog">
+            <Link
+              className={clsx(css.headerLink, isCatalog ? css.activeLink : "")}
+              href="/catalog"
+            >
               Catalog
             </Link>
           </li>

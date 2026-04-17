@@ -9,7 +9,7 @@ export default function Home() {
         <p className={css.heroText}>
           You can find everything you want in our catalog
         </p>
-        <Button text="View Now" />
+        <Button href="/catalog" text="View Now" />
       </section>
     </main>
   );
