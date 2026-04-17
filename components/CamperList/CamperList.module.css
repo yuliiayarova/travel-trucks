@@ -1,0 +1,75 @@
+.camperItem {
+  display: flex;
+  gap: 24px;
+  background-color: #f7f7f7;
+  border-radius: 16px;
+
+  margin-bottom: 32px;
+  padding: 24px;
+
+  max-width: 888px; /* потім прибрати */
+}
+
+.camperImage {
+  border-radius: 16px;
+}
+
+.camperInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.camperHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 8px 16px;
+  align-items: center;
+}
+
+.title {
+  grid-column: 1;
+}
+
+.price {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.meta {
+  grid-column: 1;
+  display: flex;
+  gap: 12px;
+}
+
+.camperDescr {
+  color: #475467;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.tagList {
+  display: flex;
+  gap: 8px;
+}
+
+.tagItem {
+  background-color: #f2f4f7;
+  border-radius: 100px;
+  padding: 12px 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.tagIcon {
+  width: 20px;
+  height: 20px;
+  fill: #101828;
+}
