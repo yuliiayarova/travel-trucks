@@ -7,7 +7,7 @@
   margin-bottom: 32px;
   padding: 24px;
 
-  max-width: 888px; /* потім прибрати */
+  min-width: 840px;
 }
 
 .camperImage {
@@ -18,29 +18,31 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 524px;
 }
 
 .camperHeader {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
-  gap: 8px 16px;
+  gap: 8px;
   align-items: center;
 }
 
-.title {
+.camperName {
   grid-column: 1;
 }
 
-.price {
+.camperPrice {
   grid-column: 2;
   justify-self: end;
+  font-size: 24px;
 }
 
 .meta {
   grid-column: 1;
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }
 
 .camperDescr {
@@ -50,6 +52,25 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 400;
+}
+
+.ratingWrapper,
+.locationWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+}
+
+.iconLocation {
+  width: 16px;
+  height: 16px;
+  color: #101828;
 }
 
 .tagList {
@@ -72,4 +93,8 @@
   width: 20px;
   height: 20px;
   fill: #101828;
+}
+
+.btnShowMore {
+  max-width: 173px;
 }

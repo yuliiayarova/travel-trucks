@@ -1,10 +1,12 @@
 .heroSection {
   padding: 195px 64px 325px;
+  background-color: gray;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url(/img/bg-img.jpg);
   background-size: cover;
   background-position: center;
+  height: calc(100vh - 72px);
 }
 
 .heroTitle {

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Button from "../Button/Button";
 import { BsFuelPump, BsDiagram3 } from "react-icons/bs";
 import { FaCar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
+import { IoMapOutline } from "react-icons/io5";
 
 interface CamperListProps {
   campers: Camper[];
@@ -26,10 +28,14 @@ export default function CamperList({ campers }: CamperListProps) {
               <h2 className={css.camperName}>{camper.name}</h2>
               <p className={css.camperPrice}>€{camper.price}</p>
               <div className={css.meta}>
-                <span>
-                  {camper.rating} {camper.totalReviews}
+                <span className={css.ratingWrapper}>
+                  <FaStar className={css.starIcon} />
+                  {camper.rating} ({camper.totalReviews} Reviews)
                 </span>
-                <span>{camper.location}</span>
+                <span className={css.locationWrapper}>
+                  <IoMapOutline className={css.iconLocation} />
+                  {camper.location}
+                </span>
               </div>
             </div>
 
@@ -48,7 +54,12 @@ export default function CamperList({ campers }: CamperListProps) {
                 {camper.form}
               </li>
             </ul>
-            <Button href={`/catalog/${camper.id}`} text="Show more" />
+            <Button
+              className={css.btnShowMore}
+              href={`/catalog/${camper.id}`}
+              target="_blank"
+              text="Show more"
+            />
           </div>
         </li>
       ))}

@@ -6,17 +6,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   className?: string;
   href?: string;
+  target?: string;
 }
 
 export default function Button({
   text,
   className,
   href,
+  target,
   ...props
 }: ButtonProps) {
   if (href) {
     return (
-      <Link href={href} className={clsx(css.btn, className)}>
+      <Link href={href} target={target} className={clsx(css.btn, className)}>
         {text}
       </Link>
     );

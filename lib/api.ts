@@ -1,5 +1,6 @@
 import {
   Camper,
+  CamperAmenities,
   CamperEngine,
   CamperForm,
   CamperGallery,
@@ -37,8 +38,25 @@ interface GetCampersFiltersResponse {
 }
 
 interface GetCamperByIdResponse {
-  camper: Camper;
+  id: string;
+  name: string;
+  price: number;
+  rating: number;
+  location: string;
+  description: string;
+  form: CamperForm;
+  length: string;
+  width: string;
+  height: string;
+  tank: string;
+  consumption: string;
+  transmission: CamperTransmission;
+  engine: CamperEngine;
+  amenities: CamperAmenities[];
+  createdAt: string;
+  updatedAt: string;
   gallery: CamperGallery[];
+  totalReviews: number;
 }
 
 interface GetCamperReviewsResponse {

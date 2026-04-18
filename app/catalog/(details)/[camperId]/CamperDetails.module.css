@@ -1,0 +1,97 @@
+/* #region Camper Main Info Styles */
+.container {
+  padding: 64px;
+}
+
+.camperDetailsSection {
+  display: flex;
+  gap: 24px;
+}
+
+.camperContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.camperMainInfo,
+.camperDetails {
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 650px;
+  background-color: #f7f7f7;
+}
+
+.camperName {
+  margin-bottom: 8px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ratingWrapper,
+.locationWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+}
+
+.iconLocation {
+  width: 16px;
+  height: 16px;
+  color: #101828;
+}
+
+.camperPrice {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.camperDescr {
+  color: #475467;
+  max-width: 602px;
+  font-weight: 400;
+}
+/* #endregion */
+
+/* #region Camper Details Styles */
+.detailsCaption {
+  margin-bottom: 16px;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tagItem {
+  background-color: #f2f4f7;
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-weight: 500;
+}
+
+.metaRow {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.metaData {
+  text-align: end;
+}
+
+/* #endregion */
