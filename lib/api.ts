@@ -37,7 +37,7 @@ interface GetCampersFiltersResponse {
   engines: CamperEngine[];
 }
 
-interface GetCamperByIdResponse {
+export interface GetCamperByIdResponse {
   id: string;
   name: string;
   price: number;
@@ -104,8 +104,8 @@ export async function getCamperById(
 
 export async function getCamperReviews(
   id: Camper["id"],
-): Promise<GetCamperReviewsResponse> {
-  const { data } = await apiClient.get<GetCamperReviewsResponse>(
+): Promise<GetCamperReviewsResponse[]> {
+  const { data } = await apiClient.get<GetCamperReviewsResponse[]>(
     `${ENDPOINT}/${id}/reviews`,
   );
   return data;

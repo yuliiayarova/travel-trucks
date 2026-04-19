@@ -17,7 +17,7 @@ export default function CamperList({ campers }: CamperListProps) {
         <li key={camper.id} className={css.camperItem}>
           <Image
             src={camper.coverImage}
-            alt="Camper image"
+            alt={camper.name}
             width={220}
             height={240}
             className={css.camperImage}

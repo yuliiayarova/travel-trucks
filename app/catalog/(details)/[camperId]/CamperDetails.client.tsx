@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 import css from "./CamperDetails.module.css";
 import { FaStar } from "react-icons/fa6";
 import { IoMapOutline } from "react-icons/io5";
+import Gallery from "@/components/Gallery/Gallery";
+import Reviews from "@/components/Reviews/Reviews";
 
 export default function CamperDetailsClient() {
   const { camperId } = useParams<{ camperId: string }>();
@@ -27,7 +29,9 @@ export default function CamperDetailsClient() {
   return (
     <main className={css.container}>
       <section className={css.camperDetailsSection}>
-        <p>gallery</p>
+        <div className={css.camperGallery}>
+          <Gallery camper={camper} />
+        </div>
         <div className={css.camperContent}>
           <div className={css.camperMainInfo}>
             <h2 className={css.camperName}>{camper.name}</h2>
@@ -68,7 +72,7 @@ export default function CamperDetailsClient() {
               <dt>Length</dt>
               <dd className={css.metaData}>{camper.length}</dd>
               <dt>Width</dt>
-              <dd className={css.metaData}>{camper.length}</dd>
+              <dd className={css.metaData}>{camper.width}</dd>
               <dt>Height</dt>
               <dd className={css.metaData}>{camper.height}</dd>
               <dt>Tank</dt>
@@ -77,6 +81,13 @@ export default function CamperDetailsClient() {
               <dd className={css.metaData}>{camper.consumption}</dd>
             </div>
           </div>
+        </div>
+      </section>
+      <section className={css.reviewsSection}>
+        <h2 className={css.reviewsTitle}>Reviews</h2>
+        <div className={css.reviewsWrapper}>
+          <Reviews />
+          <p>forma</p>
         </div>
       </section>
     </main>

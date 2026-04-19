@@ -6,12 +6,18 @@
 .camperDetailsSection {
   display: flex;
   gap: 24px;
+  margin-bottom: 88px;
+}
+
+.camperGallery {
+  flex: 0 0 638px;
 }
 
 .camperContent {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
 }
 
 .camperMainInfo,
@@ -73,6 +79,18 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 32px;
+
+  position: relative;
+}
+
+.tagList::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+
+  width: 100%;
+  height: 1px;
+  background-color: #dadde1;
 }
 
 .tagItem {
@@ -94,4 +112,15 @@
   text-align: end;
 }
 
+/* #endregion */
+
+/* #region Reviews Styles */
+.reviewsTitle {
+  margin-bottom: 24px;
+}
+
+.reviewsWrapper {
+  display: flex;
+  gap: 48px;
+}
 /* #endregion */

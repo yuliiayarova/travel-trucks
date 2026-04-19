@@ -1,0 +1,54 @@
+/* Gallery.module.css */
+.container {
+  width: 638px;
+}
+
+.mainSwiper {
+  width: 100%;
+  height: 505px;
+  border-radius: 17px;
+  margin-bottom: 27px;
+}
+
+.mainSwiper :global(.swiper-slide) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mainSwiper :global(.swiper-button-next),
+.mainSwiper :global(.swiper-button-prev) {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.mainSwiper :global(.swiper-button-next:hover),
+.mainSwiper :global(.swiper-button-prev:hover) {
+  color: #829b91;
+}
+
+.thumbSwiper {
+  width: 100%;
+}
+
+.thumbImg {
+  border-radius: 16px;
+}
+
+.thumbImgWrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbSwiper :global(.swiper-slide-thumb-active) .thumbImgWrapper {
+  outline: 3px solid #829b91;
+  outline-offset: -3px;
+}

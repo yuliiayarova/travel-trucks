@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         hostname: "ac.goit.global",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
 };
 
