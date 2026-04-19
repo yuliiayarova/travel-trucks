@@ -2,7 +2,7 @@
   background-color: #f7f7f7;
   border-radius: 16px;
   padding: 16px;
-  max-width: 623px;
+  width: 623px;
 }
 
 .reviewItem:not(:last-child) {

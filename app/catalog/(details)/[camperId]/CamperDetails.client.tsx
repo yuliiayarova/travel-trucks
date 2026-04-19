@@ -8,6 +8,8 @@ import { FaStar } from "react-icons/fa6";
 import { IoMapOutline } from "react-icons/io5";
 import Gallery from "@/components/Gallery/Gallery";
 import Reviews from "@/components/Reviews/Reviews";
+import BookingForm from "@/components/BookingForm/BookingForm";
+import { formatText, formatUnit } from "@/utils/text.config";
 
 export default function CamperDetailsClient() {
   const { camperId } = useParams<{ camperId: string }>();
@@ -57,7 +59,7 @@ export default function CamperDetailsClient() {
               <li className={css.tagItem}>{camper.engine}</li>
 
               <li className={css.tagItem}>{camper.transmission}</li>
-              <li className={css.tagItem}>{camper.form}</li>
+              <li className={css.tagItem}>{formatText(camper.form)}</li>
 
               {camper.amenities.map((amenity) => (
                 <li className={css.tagItem} key={amenity}>
@@ -68,15 +70,15 @@ export default function CamperDetailsClient() {
 
             <div className={css.metaRow}>
               <dt>Form</dt>
-              <dd className={css.metaData}>{camper.form}</dd>
+              <dd className={css.metaData}>{formatText(camper.form)}</dd>
               <dt>Length</dt>
-              <dd className={css.metaData}>{camper.length}</dd>
+              <dd className={css.metaData}>{formatUnit(camper.length)}</dd>
               <dt>Width</dt>
-              <dd className={css.metaData}>{camper.width}</dd>
+              <dd className={css.metaData}>{formatUnit(camper.width)}</dd>
               <dt>Height</dt>
-              <dd className={css.metaData}>{camper.height}</dd>
+              <dd className={css.metaData}>{formatUnit(camper.height)}</dd>
               <dt>Tank</dt>
-              <dd className={css.metaData}>{camper.tank}</dd>
+              <dd className={css.metaData}>{formatUnit(camper.tank)}</dd>
               <dt>Consumption</dt>
               <dd className={css.metaData}>{camper.consumption}</dd>
             </div>
@@ -87,7 +89,13 @@ export default function CamperDetailsClient() {
         <h2 className={css.reviewsTitle}>Reviews</h2>
         <div className={css.reviewsWrapper}>
           <Reviews />
-          <p>forma</p>
+          <div className={css.formContainer}>
+            <h3 className={css.formCaption}>Book your campervan now</h3>
+            <p className={css.formText}>
+              Stay connected! We are always ready to help you.
+            </p>
+            <BookingForm />
+          </div>
         </div>
       </section>
     </main>

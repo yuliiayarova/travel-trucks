@@ -1,0 +1,14 @@
+.container .btnLoadMore {
+  border: 1px solid #dadde1;
+  background-color: transparent;
+  margin: 0 auto;
+
+  color: #101828;
+  transition: background-color 250ms ease;
+}
+
+.container .btnLoadMore:hover,
+.container .btnLoadMore:focus {
+  border-color: #6d7b75;
+  background-color: transparent;
+}

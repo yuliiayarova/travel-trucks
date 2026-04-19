@@ -31,7 +31,7 @@ interface GetCampersResponse {
   campers: Camper[];
 }
 
-interface GetCampersFiltersResponse {
+export interface GetCampersFiltersResponse {
   forms: CamperForm[];
   transmissions: CamperTransmission[];
   engines: CamperEngine[];
@@ -68,20 +68,26 @@ interface GetCamperReviewsResponse {
   createdAt: string;
 }
 
-interface CreateBookingRequestBody {
+export interface CreateBookingRequestBody {
   name: string;
   email: string;
 }
 
-interface CreateBookingResponse {
+export interface CreateBookingResponse {
   message: string;
 }
 
 export async function getCampers(
   params: GetCampersParams,
 ): Promise<GetCampersResponse> {
+  const cleanParams = Object.fromEntries(
+    Object.entries(params).filter(
+      ([_, value]) => value !== "" && value !== undefined && value !== null,
+    ),
+  );
+
   const { data } = await apiClient.get<GetCampersResponse>(ENDPOINT, {
-    params,
+    params: cleanParams,
   });
   return data;
 }
@@ -116,7 +122,7 @@ export async function createBookingRequest(
   body: CreateBookingRequestBody,
 ): Promise<CreateBookingResponse> {
   const { data } = await apiClient.post<CreateBookingResponse>(
-    `${ENDPOINT}/${id}/booking-request`,
+    `${ENDPOINT}/${id}/booking-requests`,
     body,
   );
   return data;

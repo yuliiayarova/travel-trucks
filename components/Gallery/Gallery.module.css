@@ -20,7 +20,9 @@
 .mainSwiper :global(.swiper-button-next),
 .mainSwiper :global(.swiper-button-prev) {
   color: #ffffff;
-  transition: color 0.3s ease;
+  height: 24px;
+  width: auto;
+  transition: color 300ms ease;
 }
 
 .mainSwiper :global(.swiper-button-next:hover),

@@ -1,6 +1,8 @@
 /* #region Camper Main Info Styles */
 .container {
   padding: 64px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .camperDetailsSection {
@@ -98,6 +100,7 @@
   border-radius: 100px;
   padding: 12px 18px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .metaRow {
@@ -122,5 +125,26 @@
 .reviewsWrapper {
   display: flex;
   gap: 48px;
+}
+/* #endregion */
+
+/* #region Form Styles */
+.formContainer {
+  border: 1px solid #dadde1;
+  border-radius: 16px;
+  padding: 44px 57px;
+  width: 641px;
+}
+
+.formCaption {
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.formText {
+  color: #6c717b;
+  font-weight: 400;
+  margin-bottom: 24px;
 }
 /* #endregion */

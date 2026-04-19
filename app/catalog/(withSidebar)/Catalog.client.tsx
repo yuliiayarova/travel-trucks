@@ -1,27 +1,60 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import Button from "@/components/Button/Button";
 import CamperList from "@/components/CamperList/CamperList";
 import { getCampers } from "@/lib/api";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import css from "./Catalog.module.css";
 
 export default function CatalogClient() {
-  const [page, setPage] = useState(1);
+  const searchParams = useSearchParams();
 
-  const { data, error, isError } = useQuery({
-    queryKey: ["campers", page],
-    queryFn: () => getCampers({ page, perPage: 4 }),
-    placeholderData: keepPreviousData,
-    refetchOnMount: false,
-  });
-  if (isError) throw error;
+  const filters = {
+    location: searchParams.get("location") || "",
+    form: searchParams.get("form") || "",
+    transmission: searchParams.get("transmission") || "",
+    engine: searchParams.get("engine") || "",
+  };
 
-  const campers = data?.campers ?? [];
-  const totalPages = data?.totalPages ?? 0;
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
+    useInfiniteQuery({
+      queryKey: ["campers", filters],
+      queryFn: ({ pageParam = 1 }) => {
+        return getCampers({
+          page: pageParam,
+          perPage: 4,
+          ...filters,
+        });
+      },
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => {
+        if (lastPage.page < lastPage.totalPages) {
+          return lastPage.page + 1;
+        }
+        return undefined;
+      },
+    });
+
+  const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
   return (
-    <div>
-      <CamperList campers={campers} />
+    <div className={css.container}>
+      {campers.length > 0 && <CamperList campers={campers} />}
+
+      {hasNextPage && (
+        <Button
+          className={css.btnLoadMore}
+          text={isFetchingNextPage ? "Loading..." : "Load More"}
+          type="button"
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+        />
+      )}
+
+      {status === "success" && campers.length === 0 && (
+        <p className={css.noResults}>No campers found for these filters.</p>
+      )}
     </div>
   );
 }

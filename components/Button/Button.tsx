@@ -3,10 +3,12 @@ import clsx from "clsx";
 import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   className?: string;
   href?: string;
   target?: string;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
 export default function Button({
@@ -14,6 +16,8 @@ export default function Button({
   className,
   href,
   target,
+  onClick,
+  children,
   ...props
 }: ButtonProps) {
   if (href) {
@@ -25,8 +29,9 @@ export default function Button({
   }
 
   return (
-    <button {...props} className={clsx(css.btn, className)}>
+    <button {...props} className={clsx(css.btn, className)} onClick={onClick}>
       {text}
+      {children}
     </button>
   );
 }
