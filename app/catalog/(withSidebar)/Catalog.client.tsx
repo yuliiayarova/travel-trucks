@@ -58,7 +58,7 @@ export default function CatalogClient() {
         <CamperList campers={campers} />
       )}
 
-      {hasNextPage && (
+      {hasNextPage && campers.length > 0 && !isFilterLoading && (
         <Button
           className={css.btnLoadMore}
           text={isFetchingNextPage ? "Loading..." : "Load More"}
