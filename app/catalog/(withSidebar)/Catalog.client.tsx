@@ -20,7 +20,6 @@ export default function CatalogClient() {
     hasNextPage,
     isFetchingNextPage,
     status,
-    isLoading,
     isError,
     isFetching,
   } = useInfiniteQuery({
@@ -44,7 +43,6 @@ export default function CatalogClient() {
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
   const isFilterLoading = isFetching && !isFetchingNextPage;
-  const showMainLoader = isLoading || isFilterLoading;
 
   const queryClient = useQueryClient();
 
@@ -53,10 +51,10 @@ export default function CatalogClient() {
   };
 
   return (
-    <div className={css.container}>
-      {showMainLoader && <Loader />}
+    <section className={css.container}>
+      {isFilterLoading && <Loader />}
       {isError && <ErrorState onRetry={handleRetry} />}
-      {!showMainLoader && campers.length > 0 && (
+      {!isFilterLoading && campers.length > 0 && (
         <CamperList campers={campers} />
       )}
 
@@ -75,6 +73,6 @@ export default function CatalogClient() {
           Sorry, no campers found for these filters. Try something else, please.
         </p>
       )}
-    </div>
+    </section>
   );
 }

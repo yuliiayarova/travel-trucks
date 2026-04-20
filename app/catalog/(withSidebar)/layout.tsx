@@ -12,7 +12,7 @@ export default function CatalogLayout({
   return (
     <div className={css.container}>
       <aside className={css.sidebar}>{sidebar}</aside>
-      <div className={css.catalogWrapper}>{children}</div>
+      <main className={css.catalogWrapper}>{children}</main>
     </div>
   );
 }
