@@ -60,6 +60,7 @@ export default function CamperList({ campers }: CamperListProps) {
               href={`/catalog/${camper.id}`}
               target="_blank"
               text="Show more"
+              rel="noopener noreferrer"
             />
           </div>
         </li>

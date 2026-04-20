@@ -1,12 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import Button from "@/components/Button/Button";
 import CamperList from "@/components/CamperList/CamperList";
 import { getCampers } from "@/lib/api";
 import css from "./Catalog.module.css";
 import Loader from "@/components/Loader/Loader";
+import ErrorState from "@/components/ErrorState/ErrorState";
 
 export default function CatalogClient() {
   const searchParams = useSearchParams();
@@ -25,6 +26,7 @@ export default function CatalogClient() {
     isFetchingNextPage,
     status,
     isLoading,
+    isError,
   } = useInfiniteQuery({
     queryKey: ["campers", filters],
     queryFn: ({ pageParam = 1 }) => {
@@ -45,9 +47,16 @@ export default function CatalogClient() {
 
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
+  const queryClient = useQueryClient();
+
+  const handleRetry = () => {
+    queryClient.invalidateQueries({ queryKey: ["campers"] });
+  };
+
   return (
     <div className={css.container}>
       {isLoading && <Loader />}
+      {isError && <ErrorState onRetry={handleRetry} />}
       {campers.length > 0 && <CamperList campers={campers} />}
 
       {hasNextPage && (

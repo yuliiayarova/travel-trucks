@@ -5,14 +5,42 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import CatalogClient from "./Catalog.client";
+import { Metadata } from "next";
 
-export default async function Catalog() {
+export const metadata: Metadata = {
+  title: "Camper Catalog | TravelTrucks",
+  description:
+    "Browse our extensive catalog of premium campers and trucks for your next adventure.",
+  openGraph: {
+    title: "Explore Our Campers",
+    description: "Find the perfect truck for your road trip.",
+    // Не забудь оновити URL після деплою
+    url: "https://your-domain.vercel.app/catalog",
+  },
+};
+
+interface CatalogProps {
+  searchParams: Promise<Record<string, string | undefined>>;
+}
+export default async function Catalog({ searchParams }: CatalogProps) {
+  const params = await searchParams;
+
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ["campers", 1],
-    queryFn: () => getCampers({ page: 1, perPage: 4 }),
+  const filters = {
+    location: params.location || "",
+    form: params.form || "",
+    transmission: params.transmission || "",
+    engine: params.engine || "",
+  };
+
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ["campers", filters],
+    queryFn: ({ pageParam = 1 }) =>
+      getCampers({ page: pageParam, perPage: 4, ...filters }),
+    initialPageParam: 1,
   });
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <CatalogClient />

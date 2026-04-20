@@ -10,9 +10,9 @@ export default function CatalogLayout({
   sidebar,
 }: CatalogLayoutProps) {
   return (
-    <main className={css.container}>
+    <div className={css.container}>
       <aside className={css.sidebar}>{sidebar}</aside>
       <div className={css.catalogWrapper}>{children}</div>
-    </main>
+    </div>
   );
 }

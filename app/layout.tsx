@@ -13,8 +13,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Travel Trucks",
-  description: "Chose your camper",
+  title: "TravelTrucks | Rent your perfect camper",
+  description:
+    "Find and rent the best campers for your road trip. Wide variety of trucks with all amenities.",
+
+  openGraph: {
+    title: "TravelTrucks — Camper Rental Service",
+    description: "Chose your camper and start your adventure today!",
+    url: "https://your-deployment-url.vercel.app", // Змінити після деплою
+    siteName: "TravelTrucks",
+    images: [
+      {
+        url: "/img/bg-img.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TravelTrucks camper catalog",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

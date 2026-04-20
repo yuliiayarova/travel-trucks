@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import css from "./Reviews.module.css";
 import { FaStar } from "react-icons/fa";
+import Loader from "../Loader/Loader";
+import ErrorState from "../ErrorState/ErrorState";
 
 export default function Reviews() {
   const { camperId } = useParams<{ camperId: string }>();
@@ -20,9 +22,9 @@ export default function Reviews() {
     refetchOnMount: false,
   });
 
-  if (isLoading) return <p>Loading, please wait...</p>;
+  if (isLoading) return <Loader />;
 
-  if (error || !reviews) return <p>Something went wrong.</p>;
+  if (error || !reviews) return <ErrorState />;
 
   return (
     <ul>
