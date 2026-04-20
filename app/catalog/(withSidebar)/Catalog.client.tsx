@@ -22,6 +22,7 @@ export default function CatalogClient() {
     status,
     isLoading,
     isError,
+    isFetching,
   } = useInfiniteQuery({
     queryKey: ["campers", filters],
     queryFn: ({ pageParam = 1 }) => {
@@ -42,6 +43,9 @@ export default function CatalogClient() {
 
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
 
+  const isFilterLoading = isFetching && !isFetchingNextPage;
+  const showMainLoader = isLoading || isFilterLoading;
+
   const queryClient = useQueryClient();
 
   const handleRetry = () => {
@@ -50,9 +54,11 @@ export default function CatalogClient() {
 
   return (
     <div className={css.container}>
-      {isLoading && <Loader />}
+      {showMainLoader && <Loader />}
       {isError && <ErrorState onRetry={handleRetry} />}
-      {campers.length > 0 && <CamperList campers={campers} />}
+      {!showMainLoader && campers.length > 0 && (
+        <CamperList campers={campers} />
+      )}
 
       {hasNextPage && (
         <Button
