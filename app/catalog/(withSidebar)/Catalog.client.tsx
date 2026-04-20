@@ -8,16 +8,11 @@ import { getCampers } from "@/lib/api";
 import css from "./Catalog.module.css";
 import Loader from "@/components/Loader/Loader";
 import ErrorState from "@/components/ErrorState/ErrorState";
+import { getFilters } from "@/utils/getFilters";
 
 export default function CatalogClient() {
   const searchParams = useSearchParams();
-
-  const filters = {
-    location: searchParams.get("location") || "",
-    form: searchParams.get("form") || "",
-    transmission: searchParams.get("transmission") || "",
-    engine: searchParams.get("engine") || "",
-  };
+  const filters = getFilters(searchParams);
 
   const {
     data,

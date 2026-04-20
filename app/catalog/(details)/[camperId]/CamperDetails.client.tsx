@@ -9,7 +9,7 @@ import { IoMapOutline } from "react-icons/io5";
 import Gallery from "@/components/Gallery/Gallery";
 import Reviews from "@/components/Reviews/Reviews";
 import BookingForm from "@/components/BookingForm/BookingForm";
-import { formatText, formatUnit } from "@/utils/text.config";
+import { formatText, formatUnit } from "@/utils/formatters";
 import Loader from "@/components/Loader/Loader";
 
 export default function CamperDetailsClient() {

@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://travel-trucks-ebon-alpha.vercel.app"),
   title: "TravelTrucks | Rent your perfect camper",
   description:
     "Find and rent the best campers for your road trip. Wide variety of trucks with all amenities.",

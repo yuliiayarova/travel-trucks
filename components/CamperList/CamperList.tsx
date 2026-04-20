@@ -5,7 +5,7 @@ import { BsFuelPump, BsDiagram3 } from "react-icons/bs";
 import { FaCar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { IoMapOutline } from "react-icons/io5";
-import { formatText } from "@/utils/text.config";
+import { formatText } from "@/utils/formatters";
 import SafeImage from "../SafeImage/SafeImage";
 
 interface CamperListProps {

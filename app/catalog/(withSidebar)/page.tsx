@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-query";
 import CatalogClient from "./Catalog.client";
 import { Metadata } from "next";
+import { getFilters } from "@/utils/getFilters";
 
 export const metadata: Metadata = {
   title: "Camper Catalog | TravelTrucks",
@@ -23,15 +24,9 @@ interface CatalogProps {
 }
 export default async function Catalog({ searchParams }: CatalogProps) {
   const params = await searchParams;
+  const filters = getFilters(params);
 
   const queryClient = new QueryClient();
-
-  const filters = {
-    location: params.location || "",
-    form: params.form || "",
-    transmission: params.transmission || "",
-    engine: params.engine || "",
-  };
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ["campers", filters],

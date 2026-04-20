@@ -8,7 +8,7 @@ import { useRef } from "react";
 import { IoMapOutline } from "react-icons/io5";
 import Button from "../Button/Button";
 import { IoClose } from "react-icons/io5";
-import { formatText } from "@/utils/text.config";
+import { formatText } from "@/utils/formatters";
 
 interface FormFiltersProps {
   initialData: GetCampersFiltersResponse;
