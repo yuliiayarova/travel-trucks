@@ -8,6 +8,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const isCatalog = pathname === "/catalog";
+  const isHome = pathname === "/";
 
   return (
     <header className={css.header}>
@@ -20,7 +21,10 @@ export default function Header() {
         <nav className={css.headerNav} aria-label="Main Navigation">
           <ul className={css.headerList}>
             <li className={css.headerItem}>
-              <Link className={css.headerLink} href="/">
+              <Link
+                className={clsx(css.headerLink, isHome ? css.activeLink : "")}
+                href="/"
+              >
                 Home
               </Link>
             </li>
