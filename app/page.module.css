@@ -1,5 +1,4 @@
 .heroSection {
-  padding: 195px 64px 325px;
   background-color: gray;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
@@ -7,6 +6,12 @@
   background-size: cover;
   background-position: center;
   height: calc(100vh - 72px);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 195px 64px 325px;
 }
 
 .heroTitle {
@@ -25,4 +30,9 @@
 
 .heroSection .btnViewNow {
   max-width: 173px;
+}
+
+.container .btnBackHome {
+  max-width: 173px;
+  margin-top: 24px;
 }

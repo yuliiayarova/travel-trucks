@@ -1,10 +1,16 @@
 .header {
-  display: flex;
-  align-items: baseline;
-  padding: 0 64px;
   border-bottom: 1px solid #f2f4f7;
   background-color: #f7f7f7;
 }
+
+.headerContainer {
+  max-width: 1440px;
+  display: flex;
+  align-items: baseline;
+  padding: 0 64px;
+  margin: 0 auto;
+}
+
 .headerNav {
   margin-right: auto;
 }

@@ -1,14 +1,12 @@
-"use client";
-
 import { Camper } from "@/types/camper";
 import css from "./CamperList.module.css";
-import Image from "next/image";
 import Button from "../Button/Button";
 import { BsFuelPump, BsDiagram3 } from "react-icons/bs";
 import { FaCar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { IoMapOutline } from "react-icons/io5";
 import { formatText } from "@/utils/text.config";
+import SafeImage from "../SafeImage/SafeImage";
 
 interface CamperListProps {
   campers: Camper[];
@@ -18,7 +16,7 @@ export default function CamperList({ campers }: CamperListProps) {
     <ul className={css.camperList}>
       {campers.map((camper) => (
         <li key={camper.id} className={css.camperItem}>
-          <Image
+          <SafeImage
             src={camper.coverImage}
             alt={camper.name}
             width={220}

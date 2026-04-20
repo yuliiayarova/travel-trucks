@@ -10,6 +10,7 @@ import Gallery from "@/components/Gallery/Gallery";
 import Reviews from "@/components/Reviews/Reviews";
 import BookingForm from "@/components/BookingForm/BookingForm";
 import { formatText, formatUnit } from "@/utils/text.config";
+import Loader from "@/components/Loader/Loader";
 
 export default function CamperDetailsClient() {
   const { camperId } = useParams<{ camperId: string }>();
@@ -24,7 +25,7 @@ export default function CamperDetailsClient() {
     refetchOnMount: false,
   });
 
-  if (isLoading) return <p>Loading, please wait...</p>;
+  if (isLoading) return <Loader />;
 
   if (error || !camper) return <p>Something went wrong.</p>;
 

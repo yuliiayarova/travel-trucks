@@ -12,3 +12,7 @@
   border-color: #6d7b75;
   background-color: transparent;
 }
+
+.noResults {
+  padding: 24px;
+}
