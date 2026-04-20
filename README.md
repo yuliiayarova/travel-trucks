@@ -36,7 +36,7 @@ Web application for browsing and filtering campers with the ability to view deta
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/travel-trucks.git
+git clone https://github.com/yuliiayarova/travel-trucks.git
 cd travel-trucks
 npm install
 npm run dev
@@ -50,7 +50,7 @@ npm run dev
 
 ## 🌐 Live Demo
 
-https://your-project-name.vercel.app
+https://travel-trucks-ebon-alpha.vercel.app
 
 ## 📡 API
 

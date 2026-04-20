@@ -14,8 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Explore Our Campers",
     description: "Find the perfect truck for your road trip.",
-    // Не забудь оновити URL після деплою
-    url: "https://your-domain.vercel.app/catalog",
+    url: "https://travel-trucks-ebon-alpha.vercel.app/catalog",
   },
 };
 

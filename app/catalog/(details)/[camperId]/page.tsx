@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: camper.name,
         description: camper.description.slice(0, 160),
-        url: `https://your-domain.vercel.app/campers/${id}`, //змінити
+        url: `https://travel-trucks-ebon-alpha.vercel.app/campers/${id}`,
         siteName: "TravelTrucks",
         type: "website",
         images: [

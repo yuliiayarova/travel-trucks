@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TravelTrucks — Camper Rental Service",
     description: "Chose your camper and start your adventure today!",
-    url: "https://your-deployment-url.vercel.app", // Змінити після деплою
+    url: "https://travel-trucks-ebon-alpha.vercel.app",
     siteName: "TravelTrucks",
     images: [
       {
