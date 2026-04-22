@@ -9,27 +9,64 @@
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 375px;
   margin: 0 auto;
-  padding: 195px 64px 325px;
+  padding: 195px 32px;
 }
 
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 195px 64px 325px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
 .heroTitle {
-  font-size: 48px;
-  line-height: 0.66667;
+  font-size: 32px;
+  line-height: 1.33333;
+  max-width: 200px;
   color: #f7f7f7;
   margin-bottom: 16px;
 }
 
+@media only screen and (min-width: 768px) {
+  .heroTitle {
+    font-size: 48px;
+    line-height: 0.66667;
+    max-width: 100%;
+  }
+}
+
 .heroText {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.33333;
   color: #f7f7f7;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .heroText {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
 }
 
 .heroSection .btnViewNow {
-  max-width: 173px;
+  max-width: 156px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .heroSection .btnViewNow {
+    max-width: 173px;
+  }
 }
 
 .container .btnBackHome {

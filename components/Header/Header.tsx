@@ -3,12 +3,19 @@ import Link from "next/link";
 import css from "./Header.module.css";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 export default function Header() {
   const pathname = usePathname();
 
   const isCatalog = pathname === "/catalog";
   const isHome = pathname === "/";
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className={css.header}>
@@ -18,6 +25,10 @@ export default function Header() {
             <use href="/icons/logo.svg" />
           </svg>
         </Link>
+        <button className={css.btnBurger} type="button" onClick={openMenu}>
+          <RxHamburgerMenu className={css.burgerIcon} />
+        </button>
+        <BurgerMenu onClose={closeMenu} isOpen={isMenuOpen} />
         <nav className={css.headerNav} aria-label="Main Navigation">
           <ul className={css.headerList}>
             <li className={css.headerItem}>

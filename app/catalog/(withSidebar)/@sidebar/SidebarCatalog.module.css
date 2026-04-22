@@ -1,0 +1,9 @@
+.btnFilters {
+  display: block;
+}
+
+@media only screen and (min-width: 1440px) {
+  .btnFilters {
+    display: none;
+  }
+}
