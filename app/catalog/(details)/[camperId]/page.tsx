@@ -8,28 +8,31 @@ import CamperDetailsClient from "./CamperDetails.client";
 import { Metadata } from "next";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ camperId: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = params;
+  const { camperId } = await params;
 
   try {
-    const camper = await getCamperById(id);
+    const camper = await getCamperById(camperId);
 
-    const mainImage = camper.gallery?.[0]?.original || "/img/bg-img.jpg";
+    const description = camper.description || "";
+    const mainImage =
+      camper.gallery?.[0]?.original ||
+      "https://travel-trucks-ebon-alpha.vercel.app/img/bg-img.jpg";
 
     return {
       title: `${camper.name} | TravelTrucks`,
       description:
-        camper.description.length > 160
-          ? `${camper.description.slice(0, 157)}...`
-          : camper.description,
+        description.length > 160
+          ? `${description.slice(0, 157)}...`
+          : description,
 
       openGraph: {
         title: camper.name,
-        description: camper.description.slice(0, 160),
-        url: `https://travel-trucks-ebon-alpha.vercel.app/campers/${id}`,
+        description: description.slice(0, 160),
+        url: `https://travel-trucks-ebon-alpha.vercel.app/campers/${camperId}`,
         siteName: "TravelTrucks",
         type: "website",
         images: [
@@ -42,7 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ],
       },
     };
-  } catch {
+  } catch (error) {
+    console.error("Metadata error:", error);
+
     return {
       title: "Camper Details | TravelTrucks",
     };
@@ -50,12 +55,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CamperDetails({ params }: Props) {
-  const { id } = params;
+  const { camperId } = await params;
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["camper", id],
-    queryFn: () => getCamperById(id),
+    queryKey: ["camper", camperId],
+    queryFn: () => getCamperById(camperId),
   });
 
   return (
