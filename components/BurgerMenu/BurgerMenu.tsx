@@ -1,7 +1,7 @@
 import Link from "next/link";
 import css from "./BurgerMenu.module.css";
-import { IoIosClose } from "react-icons/io";
 import clsx from "clsx";
+import ButtonClose from "../ButtonClose/ButtonClose";
 
 interface BurgerMenuProps {
   onClose: () => void;
@@ -12,9 +12,7 @@ export default function BurgerMenu({ onClose, isOpen }: BurgerMenuProps) {
   return (
     <div className={clsx(css.mobileMenu, isOpen && css.isOpen)}>
       <div className={css.container}>
-        <button className={css.btnClose} type="button" onClick={onClose}>
-          <IoIosClose className={css.closeIcon} />
-        </button>
+        <ButtonClose onClose={onClose} />
         <Link className={css.logo} href="/" aria-label="Home" onClick={onClose}>
           <svg aria-hidden="true" width={136} height={16}>
             <use href="/icons/logo.svg" />

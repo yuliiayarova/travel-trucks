@@ -1,3 +1,7 @@
+.container {
+  width: 100%;
+}
+
 .container .btnLoadMore {
   border: 1px solid #dadde1;
   background-color: transparent;

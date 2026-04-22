@@ -33,26 +33,6 @@
   padding: 20px;
 }
 
-.btnClose {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: transparent;
-  padding: 0;
-  border: none;
-
-  position: absolute;
-  top: 16px;
-  right: 24px;
-}
-
-.closeIcon {
-  width: 28px;
-  height: 28px;
-  color: #101828;
-}
-
 .menuList {
   display: flex;
   flex-direction: column;

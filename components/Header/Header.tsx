@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
-import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 export default function Header() {
   const pathname = usePathname();

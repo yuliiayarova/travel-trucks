@@ -12,9 +12,13 @@ import { formatText } from "@/utils/formatters";
 
 interface FormFiltersProps {
   initialData: GetCampersFiltersResponse;
+  onClose?: () => void;
 }
 
-export default function FormFilters({ initialData }: FormFiltersProps) {
+export default function FormFilters({
+  initialData,
+  onClose,
+}: FormFiltersProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
@@ -30,6 +34,7 @@ export default function FormFilters({ initialData }: FormFiltersProps) {
     });
 
     router.push(`/catalog?${params.toString()}`);
+    onClose?.();
   };
 
   const handleReset = () => {
