@@ -22,7 +22,7 @@ export default function Header() {
       <div className={css.headerContainer}>
         <Link className={css.logo} href="/" aria-label="Home">
           <svg aria-hidden="true" width={136} height={16}>
-            <use href="/icons/logo.svg" />
+            <use href="/icons/sprite.svg#icon-logo" />
           </svg>
         </Link>
         <button className={css.btnBurger} type="button" onClick={openMenu}>

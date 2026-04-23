@@ -15,7 +15,7 @@ export default function BurgerMenu({ onClose, isOpen }: BurgerMenuProps) {
         <ButtonClose onClose={onClose} />
         <Link className={css.logo} href="/" aria-label="Home" onClick={onClose}>
           <svg aria-hidden="true" width={136} height={16}>
-            <use href="/icons/logo.svg" />
+            <use href="/icons/sprite.svg#icon-logo" />
           </svg>
         </Link>
         <nav className={css.menuNav} aria-label="Main Navigation">

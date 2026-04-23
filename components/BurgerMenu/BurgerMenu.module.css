@@ -39,6 +39,10 @@
   gap: 24px;
 }
 
+.menuLink {
+  font-size: 20px;
+}
+
 .menuLink:focus {
   color: #829b91;
 }
