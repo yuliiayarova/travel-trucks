@@ -2,7 +2,12 @@
   background-color: #f7f7f7;
   border-radius: 16px;
   padding: 16px;
-  width: 623px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .reviewItem {
+    width: 623px;
+  }
 }
 
 .reviewItem:not(:last-child) {

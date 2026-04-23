@@ -1,28 +1,61 @@
 .camperList {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .camperList {
+    margin-bottom: 40px;
+  }
 }
 
 .camperItem {
   display: flex;
+  flex-direction: column;
   gap: 24px;
   background-color: #f7f7f7;
   border-radius: 16px;
 
-  margin-bottom: 32px;
-  padding: 24px;
+  margin-bottom: 24px;
+  padding: 16px;
+}
 
-  min-width: 840px;
+@media only screen and (min-width: 768px) {
+  .camperItem {
+    flex-direction: row;
+    padding: 24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .camperItem {
+    min-width: 840px;
+    margin-bottom: 32px;
+  }
 }
 
 .camperImage {
   border-radius: 16px;
 }
 
+@media only screen and (max-width: 767.98px) {
+  .camperImage {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .camperInfo {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  min-width: 524px;
+  gap: 16px;
+  max-width: 420px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .camperInfo {
+    min-width: 524px;
+    gap: 24px;
+  }
 }
 
 .camperHeader {
@@ -36,6 +69,13 @@
 .camperName {
   grid-column: 1;
   line-height: 1.33333;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .camperName {
+    font-size: 24px;
+  }
 }
 
 .camperPrice {
@@ -43,21 +83,40 @@
   justify-self: end;
   font-size: 24px;
   line-height: 1.33333;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .camperPrice {
+    font-size: 24px;
+  }
 }
 
 .meta {
   grid-column: 1;
-  display: flex;
+  display: grid;
   gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .meta {
+    display: flex;
+  }
 }
 
 .camperDescr {
   color: #475467;
-  max-width: 500px;
+  max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 400;
+}
+
+@media only screen and (min-width: 1440px) {
+  .camperDescr {
+    max-width: 500px;
+  }
 }
 
 .ratingWrapper,
@@ -81,7 +140,14 @@
 
 .tagList {
   display: flex;
+  flex-direction: column;
   gap: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .tagList {
+    flex-direction: row;
+  }
 }
 
 .tagItem {
@@ -103,6 +169,14 @@
   fill: #101828;
 }
 
-.btnShowMore {
-  max-width: 173px;
+.camperInfo .btnShowMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .btnShowMore {
+    max-width: 173px;
+  }
 }

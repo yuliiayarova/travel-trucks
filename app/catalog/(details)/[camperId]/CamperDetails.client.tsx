@@ -64,7 +64,7 @@ export default function CamperDetailsClient() {
 
               {camper.amenities.map((amenity) => (
                 <li className={css.tagItem} key={amenity}>
-                  {amenity}
+                  {formatText(amenity)}
                 </li>
               ))}
             </ul>

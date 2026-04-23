@@ -1,16 +1,36 @@
 /* Gallery.module.css */
-.container {
-  width: 638px;
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 100%;
+    max-width: 638px;
+  }
 }
 
 .mainSwiper {
   border-radius: 17px;
-  margin-bottom: 27px;
+  margin-bottom: 16px;
+
+  width: 100%;
+  aspect-ratio: 638 / 505;
+}
+
+@media only screen and (min-width: 1440px) {
+  .mainSwiper {
+    margin-bottom: 27px;
+  }
+}
+
+.mainSwiper :global(.swiper-slide) {
+  width: 100%;
+  height: 100%;
 }
 
 .mainSwiper :global(.swiper-slide) img {
   object-fit: cover;
   object-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .mainSwiper :global(.swiper-button-next),
@@ -26,20 +46,22 @@
   color: #829b91;
 }
 
-.thumbImg {
-  border-radius: 16px;
+.thumbSwiper {
+  width: 100%;
 }
 
 .thumbImgWrapper {
   border-radius: 16px;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 136 / 144;
 }
 
 .thumbImg {
-  /* width: 100%;
-  height: auto; */
   object-fit: cover;
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
 }
 
 .thumbSwiper :global(.swiper-slide-thumb-active) .thumbImgWrapper {

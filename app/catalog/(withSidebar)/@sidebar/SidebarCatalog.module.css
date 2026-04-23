@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .btnFilters {
   display: block;
 }
@@ -9,24 +13,17 @@
 }
 
 .filtersWrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 100%;
-  background: white;
-
-  transform: translateX(100%);
-  transition: transform 300ms ease;
+  position: absolute;
+  display: none;
 }
 
 .filtersWrapper.isOpen {
-  transform: translateX(0);
+  display: block;
 }
 
 @media only screen and (min-width: 1440px) {
   .filtersWrapper {
     position: static;
-    transform: none;
+    display: block;
   }
 }

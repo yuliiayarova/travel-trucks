@@ -1,18 +1,37 @@
 /* #region Camper Main Info Styles */
+
 .container {
-  padding: 64px;
-  max-width: 1440px;
+  padding: 16px 24px;
+  max-width: 375px;
   margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 24px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    padding: 64px;
+    max-width: 1440px;
+  }
 }
 
 .camperDetailsSection {
   display: flex;
+  flex-direction: column;
   gap: 24px;
-  margin-bottom: 88px;
+  margin-bottom: 24px;
 }
 
-.camperGallery {
-  flex: 0 0 638px;
+@media only screen and (min-width: 1440px) {
+  .camperDetailsSection {
+    flex-direction: row;
+    margin-bottom: 88px;
+  }
 }
 
 .camperContent {
@@ -25,20 +44,39 @@
 .camperMainInfo,
 .camperDetails {
   border-radius: 16px;
-  padding: 24px;
-  max-width: 650px;
+  padding: 16px;
   background-color: #f7f7f7;
+}
+
+@media only screen and (min-width: 768px) {
+  .camperMainInfo,
+  .camperDetails {
+    padding: 24px;
+  }
 }
 
 .camperName {
   margin-bottom: 8px;
   line-height: 1.33333;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .camperName {
+    font-size: 24px;
+  }
 }
 
 .wrapper {
-  display: flex;
+  display: grid;
   gap: 16px;
   margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    display: flex;
+  }
 }
 
 .ratingWrapper,
@@ -61,9 +99,16 @@
 }
 
 .camperPrice {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.33333;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .camperPrice {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
 }
 
 .camperDescr {
@@ -76,6 +121,13 @@
 /* #region Camper Details Styles */
 .detailsCaption {
   margin-bottom: 16px;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .detailsCaption {
+    font-size: 24px;
+  }
 }
 
 .tagList {
@@ -121,12 +173,28 @@
 
 /* #region Reviews Styles */
 .reviewsTitle {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .reviewsTitle {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
 }
 
 .reviewsWrapper {
   display: flex;
-  gap: 48px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .reviewsWrapper {
+    flex-direction: row;
+    gap: 48px;
+  }
 }
 /* #endregion */
 
@@ -134,8 +202,13 @@
 .formContainer {
   border: 1px solid #dadde1;
   border-radius: 16px;
-  padding: 44px 57px;
-  width: 641px;
+  padding: 24px;
+}
+@media only screen and (min-width: 1440px) {
+  .formContainer {
+    width: 641px;
+    padding: 44px 57px;
+  }
 }
 
 .formCaption {

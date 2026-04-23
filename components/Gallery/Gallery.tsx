@@ -49,12 +49,21 @@ export default function Gallery({ camper }: GalleryProps) {
       <Swiper
         onSwiper={setThumbsSwiper}
         loop={false}
-        spaceBetween={32}
+        spaceBetween={12}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className={css.thumbSwiper}
+        breakpoints={{
+          768: {
+            spaceBetween: 20,
+          },
+
+          1440: {
+            spaceBetween: 32,
+          },
+        }}
       >
         {camper.gallery.map((image) => (
           <SwiperSlide key={image.thumb}>

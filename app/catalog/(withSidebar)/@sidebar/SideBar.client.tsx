@@ -18,7 +18,7 @@ export default function SideBarClient({ filtersData }: SideBarClientProps) {
   const filtersClose = () => setIsOpen(false);
 
   return (
-    <div>
+    <div className={css.container}>
       <Button
         className={css.btnFilters}
         text="Search and Filters"

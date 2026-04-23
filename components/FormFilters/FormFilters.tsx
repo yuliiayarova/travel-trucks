@@ -40,6 +40,7 @@ export default function FormFilters({
   const handleReset = () => {
     formRef.current?.reset();
     router.push("/catalog");
+    onClose?.();
   };
 
   return (
